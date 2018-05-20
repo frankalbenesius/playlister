@@ -38,7 +38,6 @@ class App extends Component {
     }
   }
   loadPlaylist = id => () => {
-    console.log("id", id);
     const playlist = this.state.data.items.find(p => p.id === id);
     this.setState({ playlist, tracks: [] }, () => {
       fetch(playlist.tracks.href, {
@@ -89,7 +88,13 @@ class App extends Component {
             <div>
               <p>{playlist.name}</p>
               {tracks.length > 0
-                ? tracks.map(t => <div key={t.id}>{t.track.name}</div>)
+                ? tracks.map(t => (
+                    <div>
+                      <a key={t.track.id} href={t.track.uri}>
+                        {t.track.name}
+                      </a>
+                    </div>
+                  ))
                 : null}
             </div>
           ) : null}
