@@ -86,7 +86,9 @@ class App extends Component {
         <Main>
           {playlist.id ? (
             <div>
-              <p>{playlist.name}</p>
+              <p>
+                <a href={playlist.uri}>{playlist.name}</a>
+              </p>
               {tracks.length > 0
                 ? tracks.map(t => (
                     <div>
