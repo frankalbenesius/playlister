@@ -28,7 +28,7 @@ class App extends Component {
                 data: json
               },
               () => {
-                if (json.items.length > 0) {
+                if (json.items && json.items.length > 0) {
                   this.loadPlaylist(json.items[0].id)();
                 }
               }
